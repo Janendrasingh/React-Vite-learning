@@ -25,4 +25,4 @@ This is a practice project created as part of my React learning journey.
 Bootstrap was installed using npm:
 
 ```bash
-npm install bootstrap
+npm i bootstrap@5.3.8
