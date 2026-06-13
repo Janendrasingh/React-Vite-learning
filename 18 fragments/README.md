@@ -1,4 +1,4 @@
-# React Practice: Fragments and Map Method
+# React Practice: Fragments, Map Method and Props
 
 ## 📌 Overview
 
@@ -78,6 +78,52 @@ function App() {
 * Makes UI dynamic and scalable.
 * Easy to render data from APIs and databases.
 * Supports component reusability.
+
+---
+
+## Understanding Props in this Project
+
+This project demonstrates the concept of **Props (Properties)** in React, which is the mechanism used to pass data from a parent component down to child components. 
+
+Here is how the data flows through the components in this code:
+
+### 1. Data Origin (The Parent Component)
+In `App.js`, an array of data is defined inside the parent component:
+```javascript
+let foodItems = ["sabji", "Vegitable", "Fruits", "Roti", "Milk", "Ghee"];
+```
+
+### 2. Passing Props Down
+The `App` component passes this `foodItems` array to two different child components (`ErrorMessage` and `FoodItems`) using a custom attribute named `items`:
+```jsx
+<ErrorMessage items={foodItems}></ErrorMessage>
+<FoodItems items={foodItems}></FoodItems>
+```
+
+### 3. Receiving Props (Two Different Approaches)
+The child components receive this data in two distinct ways, demonstrating different JavaScript syntaxes:
+
+*   **Via Object Destructuring (`ErrorMessage` & `FoodItems`):**
+    Instead of accepting the entire `props` object, these components unpack the `items` property directly in the function argument:
+    ```javascript
+    const FoodItems = ({ items }) => { ... }
+    ```
+*   **Via the Standard Props Object (`Item`):**
+    Inside the `FoodItems` component, individual array elements are passed down to a smaller child component (`Item`) using the attribute `FoodItem`:
+    ```jsx
+    <Item key={item} FoodItem={item} />
+    ```
+    The `Item` component receives the standard `props` object and accesses the value using dot notation:
+    ```javascript
+    const Item = (props) => {
+      return <li className="list-group-item">{props.FoodItem}</li>;
+    };
+    ```
+
+### Key Takeaways Demonstrated:
+*   **Unidirectional Data Flow:** Data moves in a single direction—downwards from `App` to `FoodItems`, and then further down to `Item`.
+*   **Reusability:** Props allow components like `Item` to remain dynamic. The component structure stays the same, but the text changes based on the prop value received.
+*   **Read-Only:** The child components receive the `items` data but do not modify it directly, maintaining React's rule that props are immutable.
 
 ---
 
