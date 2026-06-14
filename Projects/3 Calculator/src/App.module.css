@@ -5,21 +5,5 @@
     margin: auto;
 }
 
-.display{
-    margin: 15px auto;
-    width: 175px;
-    font-size: 25px;
-    display: block;
-}
 
-.buttonContainer{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
-.button{
-    width: 45px;
-    height: 45px;
-    margin: 3px;
-}
