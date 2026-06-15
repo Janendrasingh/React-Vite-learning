@@ -4,3 +4,7 @@
   border: 3px solid black !important;
   font-weight: 500;
 }
+
+.button{
+  float: right ;
+}
