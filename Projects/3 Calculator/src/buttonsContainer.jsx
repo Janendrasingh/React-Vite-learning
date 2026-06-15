@@ -15,10 +15,10 @@ const ButtonContainer = () => {
     "7",
     "8",
     "/",
+    "=",
     "9",
     "0",
     ".",
-    "=",
   ];
 
   return (
