@@ -6,7 +6,15 @@ import Display from "./components/Display";
 function App() {
   const [CalVal, setCalVal] = useState("");
   const onButtonClick = (buttonText) => {
-    console.log(buttonText);
+    if(buttonText === "C"){
+        setCalVal("");
+    } else if (buttonText === "="){
+        const result = eval(CalVal);
+        setCalVal(result);
+    } else {
+        const newDisplayValue = CalVal + buttonText;
+        setCalVal(newDisplayValue);
+    }
   };
 
   return (
