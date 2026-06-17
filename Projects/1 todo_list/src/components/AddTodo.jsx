@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { MdOutlineAddComment } from "react-icons/md";
 
 function AddTodo({ onNewItem }) {
@@ -8,8 +8,11 @@ function AddTodo({ onNewItem }) {
 
   const handleAddClick = (event) => {
     event.preventDefault();
-    onNewItem(todoNameElement.current.value, dueDateElement.current.value);
-    console.log(todoNameElement.current.value, dueDateElement.current.value);
+    const todoName = todoNameElement.current.value;
+    const dueDate = dueDateElement.current.value;
+    todoNameElement.current.value = "";
+    dueDateElement.current.value = "";
+    onNewItem(todoName, dueDate);
   };
 
   return (
