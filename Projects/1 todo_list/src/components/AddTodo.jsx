@@ -5,7 +5,6 @@ function AddTodo({ onNewItem }) {
   const todoNameElement = useRef();
   const dueDateElement = useRef();
 
-
   const handleAddClick = (event) => {
     event.preventDefault();
     const todoName = todoNameElement.current.value;
