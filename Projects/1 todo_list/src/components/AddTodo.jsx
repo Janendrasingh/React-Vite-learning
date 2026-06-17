@@ -14,7 +14,8 @@ const handleDateChange = (event) => {
     setDueDate(event.target.value);
 };
 
-const handleAddClick = () => {
+const handleAddClick = (event) => {
+    event.preventDefault();
     onNewItem(todoName, dueDate);
     setTodoName("");
     setDueDate("");
@@ -22,7 +23,7 @@ const handleAddClick = () => {
 
   return (
     <div className="container text-center">
-      <div className="row kg-row">
+      <form  className="row kg-row" onSubmit={handleAddClick}>
         <div className="col-6">
           <input type="text" placeholder="Enter Todo Here" 
           value={todoName}
@@ -32,14 +33,13 @@ const handleAddClick = () => {
           <input type="date" value={dueDate} onChange={handleDateChange}/>
         </div>
         <div className="col-2">
-          <button type="button" className="btn btn-success kg-row"
-          onClick={handleAddClick}>
+          <button type="submit" className="btn btn-success kg-row">
 
 <MdOutlineAddComment />
 
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
