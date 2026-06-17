@@ -1,42 +1,33 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { MdOutlineAddComment } from "react-icons/md";
 
-function AddTodo({onNewItem}) {
+function AddTodo({ onNewItem }) {
+  const todoNameElement = useRef();
+  const dueDateElement = useRef();
 
-const [todoName, setTodoName] = useState('');
-const [dueDate, setDueDate] = useState('');
 
-const handleNameChange = (event) => {
-    setTodoName(event.target.value);
-};
-
-const handleDateChange = (event) => {
-    setDueDate(event.target.value);
-};
-
-const handleAddClick = (event) => {
+  const handleAddClick = (event) => {
     event.preventDefault();
-    onNewItem(todoName, dueDate);
-    setTodoName("");
-    setDueDate("");
-};
+    onNewItem(todoNameElement.current.value, dueDateElement.current.value);
+    console.log(todoNameElement.current.value, dueDateElement.current.value);
+  };
 
   return (
     <div className="container text-center">
-      <form  className="row kg-row" onSubmit={handleAddClick}>
+      <form className="row kg-row" onSubmit={handleAddClick}>
         <div className="col-6">
-          <input type="text" placeholder="Enter Todo Here" 
-          value={todoName}
-          onChange={handleNameChange} />
+          <input
+            type="text"
+            ref={todoNameElement}
+            placeholder="Enter Todo Here"
+          />
         </div>
         <div className="col-4">
-          <input type="date" value={dueDate} onChange={handleDateChange}/>
+          <input type="date" ref={dueDateElement} />
         </div>
         <div className="col-2">
           <button type="submit" className="btn btn-success kg-row">
-
-<MdOutlineAddComment />
-
+            <MdOutlineAddComment />
           </button>
         </div>
       </form>
