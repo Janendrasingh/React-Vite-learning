@@ -1,9 +1,9 @@
-import { useState } from "react";
-import "./App.css";
 import AddTodo from "./components/AddTodo";
 import AppName from "./components/AppName";
 import TodoItems from "./components/TodoItems";
 import WelcomeMsg from "./components/WelcomeMsg";
+import "./App.css";
+import { useState } from "react";
 import { TodoItemsContext } from "./store/todo-items-store";
 
 function App() {
@@ -22,12 +22,18 @@ function App() {
   };
 
   return (
-    <TodoItemsContext.Provider value={todoItems}>
+    <TodoItemsContext.Provider
+      value={{
+        todoItems,
+        addNewItem: handleNewItem,
+        deleteItem: handleDeleteItem,
+      }}
+    >
       <center className="todo-container">
         <AppName />
-        <AddTodo onNewItem={handleNewItem} />
+        <AddTodo />
         <WelcomeMsg />
-        <TodoItems onDeleteItem={handleDeleteItem} />
+        <TodoItems />
       </center>
     </TodoItemsContext.Provider>
   );
