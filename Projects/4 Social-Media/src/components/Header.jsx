@@ -15,7 +15,7 @@ const Header = () => {
                 role="img"
                 aria-label="Bootstrap"
               >
-                <use xlinkhref="#bootstrap"></use>
+                <use xlinkHref="#bootstrap"></use>
               </svg>
             </a>{" "}
             <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
