@@ -37,7 +37,9 @@ const PostListProvider = ({ children }) => {
 
   const addPost = () => {};
 
-  const deletePost = () => {};
+  const deletePost = (postId) => {
+    console.log("Deleting post with ID:", postId);
+  };
 
   return (
     <PostListContext.Provider

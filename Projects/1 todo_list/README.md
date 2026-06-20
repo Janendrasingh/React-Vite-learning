@@ -56,7 +56,7 @@ src/
 * Importing and exporting components
 * Using JSX syntax
 * Applying CSS styles in React
-* Difference between `class` and `className`
+* Difference between `className` and `className`
 * Organizing code into reusable components
 * Rendering components inside the main App component
 

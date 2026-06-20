@@ -157,7 +157,7 @@ Unlike regular CSS files, styles defined inside a CSS Module only apply to the c
 
 ### Why CSS Modules?
 
-When working on large applications, different components may accidentally use the same CSS class names.
+When working on large applications, different components may accidentally use the same CSS className names.
 
 Example:
 
@@ -177,7 +177,7 @@ Another component may also contain:
 
 This can cause style conflicts.
 
-CSS Modules solve this problem by generating unique class names automatically.
+CSS Modules solve this problem by generating unique className names automatically.
 
 ---
 
@@ -230,14 +230,14 @@ into something like:
 kgItem_x8f3a_12
 ```
 
-This unique class name prevents conflicts with styles from other components or libraries such as Bootstrap.
+This unique className name prevents conflicts with styles from other components or libraries such as Bootstrap.
 
 ---
 
 ### Advantages of CSS Modules
 
 * Component-scoped styling.
-* Prevents class name collisions.
+* Prevents className name collisions.
 * Easier maintenance in large projects.
 * Better code organization.
 * Works seamlessly with React and Vite.
