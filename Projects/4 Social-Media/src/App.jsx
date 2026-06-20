@@ -13,15 +13,16 @@ function App() {
 
   return (
     <PostListProvider>
-    <div className="app-container">
-      <Sidebar selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
-      <div className="content">
-        <Header />
-{selectedTab === "Home" ? <PostList /> : <CreatePost />}
-        <Footer />
+      <div className="app-container">
+        <Sidebar selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+        <div className="content">
+          <Header />
+          {selectedTab === "Home" ? <PostList /> : <CreatePost />}
+          <Footer />
+        </div>
       </div>
-    </div>
-  </PostListProvider>);
+    </PostListProvider>
+  );
 }
 
 export default App;
