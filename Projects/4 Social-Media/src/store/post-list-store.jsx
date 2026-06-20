@@ -32,7 +32,7 @@ const postListReducer = (currPostList, action) => {
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(
     postListReducer,
-    DEFAULT_POST_LIST
+    DEFAULT_POST_LIST,
   );
 
   const addPost = () => {};
@@ -42,9 +42,7 @@ const PostListProvider = ({ children }) => {
   };
 
   return (
-    <PostListContext.Provider
-      value={{ postList, addPost, deletePost }}
-    >
+    <PostListContext.Provider value={{ postList, addPost, deletePost }}>
       {children}
     </PostListContext.Provider>
   );
