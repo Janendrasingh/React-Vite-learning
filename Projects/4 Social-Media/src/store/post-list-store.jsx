@@ -39,7 +39,9 @@ const PostListProvider = ({ children }) => {
     DEFAULT_POST_LIST,
   );
 
-  const addPost = () => {};
+  const addPost = (userID, postTitle, postBody, reactions, tags ) => {
+    console.log(`${userID}, ${postTitle},${ postBody},${ reactions},${ tags} `)
+  };
 
   const deletePost = (postId) => {
     dispatchPostList({ type: "DELETE_POST", payload: {postId} });
