@@ -1,41 +1,36 @@
-import {useContext, useRef } from "react";
-import {PostListContext} from "../store/post-list-store";
+import { useContext, useRef } from "react";
+import { PostListContext } from "../store/post-list-store";
 
 const CreatePost = () => {
-const {addPost} = useContext(PostListContext);
+  const { addPost } = useContext(PostListContext);
 
+  const userIDElement = useRef();
+  const postTitleElement = useRef();
+  const postBodyElement = useRef();
+  const reactionsElement = useRef();
+  const tagsElement = useRef();
 
- const  userIDElement = useRef()
- const  postTitleElement = useRef()
-const  postBodyElement = useRef()
-const  reactionsElement = useRef()
-const  tagsElement = useRef()
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-const handleSubmit = (event) => {
-  event.preventDefault();
+    const userID = userIDElement.current.value;
+    const postTitle = postTitleElement.current.value;
+    const postBody = postBodyElement.current.value;
+    const reactions = reactionsElement.current.value;
+    const tags = tagsElement.current.value.split(",").map((tag) => tag.trim());
 
-  const userID = userIDElement.current.value;
-  const postTitle = postTitleElement.current.value;
-  const postBody = postBodyElement.current.value;
-  const reactions = reactionsElement.current.value;
-  const tags = tagsElement.current.value
-    .split(",")
-    .map((tag) => tag.trim());
+    userIDElement.current.value = "";
+    postTitleElement.current.value = "";
+    postBodyElement.current.value = "";
+    reactionsElement.current.value = "";
+    tagsElement.current.value = "";
 
-addPost(
-  userID,
-  postTitle,
-  postBody,
-  reactions,
-  tags
-);
-};
+    addPost(userID, postTitle, postBody, reactions, tags);
+  };
 
   return (
-
     <div className="container mt-4">
       <h2>Create Post</h2>
-
 
       <form className="create-post" onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -44,7 +39,7 @@ addPost(
           </label>
           <input
             type="text"
-            ref = {userIDElement}
+            ref={userIDElement}
             className="form-control"
             id="userId"
             placeholder="Your User ID"
@@ -57,7 +52,7 @@ addPost(
           </label>
           <input
             type="text"
-            ref = {postTitleElement}
+            ref={postTitleElement}
             className="form-control"
             id="title"
             placeholder="How are you felling today"
@@ -96,7 +91,7 @@ addPost(
           </label>
           <input
             type="text"
-ref={tagsElement}
+            ref={tagsElement}
             className="form-control"
             id="tags"
             placeholder="Please enter your tags here"
