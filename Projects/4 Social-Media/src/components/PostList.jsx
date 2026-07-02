@@ -11,13 +11,20 @@ const PostList = () => {
   useEffect(() => {
     setFetching(true);
 
+    const controller = new AbortController();
+    const signal = controller.signal;
     // Logic to fetch posts from the server can be added here
-    fetch("https://dummyjson.com/posts")
+    fetch("https://dummyjson.com/posts", { signal })
       .then((res) => res.json())
       .then((data) => {
         addInitialPosts(data.posts);
         setFetching(false);
       });
+
+      return () =>{
+        console.log("PostList component unmounted");
+        controller.abort();
+      }
   }, {});
 
   return (
