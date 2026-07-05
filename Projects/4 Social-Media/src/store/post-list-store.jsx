@@ -8,6 +8,9 @@ export const PostListContext = createContext({
 });
 
 const postListReducer = (currPostList, action) => {
+  console.log(action);
+  console.log(action);
+
   let newPostList = currPostList;
   if (action.type === "DELETE_POST") {
     newPostList = currPostList.filter(
@@ -24,21 +27,16 @@ const postListReducer = (currPostList, action) => {
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
 
-  const addPost = (userID, postTitle, postBody, reactions, tags) => {
+  const addPost = (post) => {
+    console.log("Adding post:", post);
     dispatchPostList({
       type: "ADD_POST",
-      payload: {
-        id: Date.now().toString(),
-        title: postTitle,
-        body: postBody,
-        reactions: reactions,
-        userId: userID,
-        tags: tags,
-      },
+      payload: post,
     });
   };
 
   const addInitialPosts = (posts) => {
+    console.log("Adding initial posts:", posts);
     dispatchPostList({
       type: "ADD_INITIAL_POSTS",
       payload: { posts: posts },
