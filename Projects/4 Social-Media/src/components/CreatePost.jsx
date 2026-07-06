@@ -19,11 +19,11 @@ const CreatePost = () => {
     const reactions = reactionsElement.current.value;
     const tags = tagsElement.current.value.split(",").map((tag) => tag.trim());
 
-    // userIDElement.current.value = "";
-    // postTitleElement.current.value = "";
-    // postBodyElement.current.value = "";
-    // reactionsElement.current.value = "";
-    // tagsElement.current.value = "";
+    userIDElement.current.value = "";
+    postTitleElement.current.value = "";
+    postBodyElement.current.value = "";
+    reactionsElement.current.value = "";
+    tagsElement.current.value = "";
 
     fetch("https://dummyjson.com/posts/add", {
       method: "POST",
