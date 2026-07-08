@@ -3,6 +3,7 @@ import { PostListContext } from "../store/post-list-store";
 
 const CreatePost = () => {
   const { addPost } = useContext(PostListContext);
+  const navigate = useNavigate();
 
   const userIDElement = useRef();
   const postTitleElement = useRef();
@@ -47,6 +48,7 @@ const CreatePost = () => {
       userId: userID,
       tags: tags,
     });
+    navigate("/");
   };
 
   return (
